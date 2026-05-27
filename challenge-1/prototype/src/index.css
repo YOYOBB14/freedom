@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #1A2E1A;
+  --color-cream: #F5F2EC;
+  --color-lime: #8CC63F;
+  --color-amber-custom: #F4A429;
+  --font-family-sans: "Inter", system-ui, sans-serif;
+}
+
+* { -webkit-tap-highlight-color: transparent; }
+
+@keyframes shieldGlow {
+  0%, 100% { filter: drop-shadow(0 0 8px #8CC63F); }
+  50% { filter: drop-shadow(0 0 20px #8CC63F) drop-shadow(0 0 40px #8CC63F88); }
+}
+@keyframes butterflyFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes greenFlash {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-shield-glow { animation: shieldGlow 2s ease-in-out infinite; }
+.animate-butterfly-float { animation: butterflyFloat 2s ease-in-out infinite; }
+.animate-slide-in { animation: slideIn 250ms ease-out; }
+.animate-slide-in-left { animation: slideInLeft 250ms ease-out; }
+.animate-green-flash { animation: greenFlash 400ms ease-out forwards; }
+.animate-pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }
