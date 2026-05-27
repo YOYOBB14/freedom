@@ -13,9 +13,12 @@ export default function Screen3({ onNext, onBack, shieldLevel, setShieldLevel })
       </div>
       <BackButton onBack={onBack} />
       <div className="flex-1 overflow-y-auto px-6 pt-8 pb-4">
-        <h1 className="text-2xl font-bold text-gray-900 leading-tight mb-6">
+        <h1 className="text-2xl font-bold text-gray-900 leading-tight mb-2">
           How strong should your Focus Shield be?
         </h1>
+        <p className="text-sm text-[#6B6B6B] italic text-center mb-4">
+          Not every distraction needs the same level of protection.
+        </p>
         <div className="flex flex-col gap-3">
           {["light", "real", "locked"].map((level) => (
             <ShieldCard

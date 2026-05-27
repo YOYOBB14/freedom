@@ -38,6 +38,17 @@ export default function Screen6({ onNext, onBack, selectedApps, shieldLevel }) {
                   during focus sessions.</>
             }
           </p>
+          {!isLight && (
+            <div className="mt-6 w-full max-w-xs">
+              <div className="border-t border-white/20 mb-4" />
+              <p className="text-white/70 text-sm leading-relaxed mb-2">
+                Freedom will only step in when your selected distraction apps are opened during focus sessions.
+              </p>
+              <p className="text-white/60 text-sm leading-relaxed">
+                You can adjust or turn off your Focus Shield anytime.
+              </p>
+            </div>
+          )}
         </div>
       </div>
       <div className="flex flex-col gap-3">

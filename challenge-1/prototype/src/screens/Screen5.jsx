@@ -29,7 +29,7 @@ export default function Screen5({ onNext, setPermissionGranted }) {
             <div className="px-4 py-3 text-xs text-white/40 uppercase tracking-wide">Downloaded Apps</div>
             <button
               onClick={() => setAndroidStep(1)}
-              className="w-full flex items-center justify-between px-4 py-4 hover:bg-white/5 active:bg-white/10"
+              className="w-full flex items-center justify-between px-4 py-4 hover:bg-white/5 active:bg-white/10 ring-2 ring-[#8CC63F] animate-pulse rounded-lg"
             >
               <div className="flex items-center gap-3">
                 <span className="text-xl">🦋</span>
@@ -40,7 +40,7 @@ export default function Screen5({ onNext, setPermissionGranted }) {
           </div>
           {/* Tooltip */}
           <div className="absolute left-4 right-4 bottom-24 bg-[#8CC63F] rounded-xl p-3 shadow-lg">
-            <p className="text-white text-sm font-semibold">Step 1 of 3: Tap Freedom</p>
+            <p className="text-white text-sm font-semibold">Step 1 of 3 — Tap Freedom to continue</p>
           </div>
         </div>
       )}
@@ -55,18 +55,21 @@ export default function Screen5({ onNext, setPermissionGranted }) {
               <span className="text-white text-sm">Use Freedom</span>
               <button
                 onClick={() => setAndroidStep(2)}
-                className="w-12 h-6 rounded-full bg-gray-600 flex items-center px-1 transition-all"
+                className="w-12 h-6 rounded-full bg-gray-600 flex items-center px-1 transition-all ring-2 ring-[#8CC63F] animate-pulse"
               >
                 <div className="w-4 h-4 rounded-full bg-white shadow" />
               </button>
             </div>
-            <p className="text-white/50 text-xs leading-relaxed">
+            <p className="text-white/50 text-xs leading-relaxed mb-1">
               Enabling this permission will allow Freedom to block websites and apps during your active sessions.
+            </p>
+            <p className="text-white/60 text-xs leading-relaxed">
+              This lets Freedom detect when your selected apps open.
             </p>
           </div>
           {/* Tooltip */}
           <div className="absolute left-4 right-4 bottom-24 bg-[#8CC63F] rounded-xl p-3 shadow-lg">
-            <p className="text-white text-sm font-semibold">Step 2 of 3: Turn on the switch</p>
+            <p className="text-white text-sm font-semibold">Step 2 of 3 — Turn on the switch</p>
           </div>
         </div>
       )}
@@ -79,8 +82,10 @@ export default function Screen5({ onNext, setPermissionGranted }) {
           {/* Overlay */}
           <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center px-6 z-10">
             {/* Tooltip above dialog */}
-            <div className="w-full bg-[#8CC63F] rounded-xl p-3 shadow-lg mb-3">
-              <p className="text-white text-sm font-semibold">Step 3 of 3: Tap Allow</p>
+            <div className="mb-3">
+              <span className="bg-[#8CC63F] text-white text-xs px-3 py-1 rounded-full font-medium shadow-lg">
+                Step 3 of 3 — Tap Allow to activate your shield
+              </span>
             </div>
             {/* System dialog */}
             <div className="w-full bg-white rounded-2xl overflow-hidden shadow-2xl">
@@ -117,10 +122,10 @@ export default function Screen5({ onNext, setPermissionGranted }) {
                 {denied ? (
                   <div className="p-4">
                     <p className="text-xs text-gray-600 mb-3 leading-relaxed">
-                      No problem. You can enable this later in Settings &gt; Accessibility &gt; Freedom
+                      No problem — you can enable this later in Settings → Accessibility → Freedom
                     </p>
                     <button
-                      onClick={() => setDenied(false)}
+                      onClick={() => { setDenied(false); setAndroidStep(0); }}
                       className="w-full py-2 text-[#1565C0] text-sm font-medium"
                     >
                       Try again
@@ -128,7 +133,7 @@ export default function Screen5({ onNext, setPermissionGranted }) {
                   </div>
                 ) : (
                   <>
-                    <button onClick={handleAllow} className="w-full py-3 text-[#1565C0] text-sm font-medium border-b border-gray-100">Allow</button>
+                    <button onClick={handleAllow} className="w-full py-3 text-[#1565C0] text-sm font-semibold border-b border-gray-100 animate-pulse bg-[#8CC63F]/10">Allow</button>
                     <button onClick={() => setDenied(true)} className="w-full py-3 text-[#1565C0] text-sm font-medium border-b border-gray-100">Deny</button>
                     <button className="w-full py-3 text-[#1565C0] text-sm font-medium">Uninstall</button>
                   </>

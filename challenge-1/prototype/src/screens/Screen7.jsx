@@ -22,24 +22,26 @@ export default function Screen7({ onNext, onSkip, selectedApps, setBlockAttempte
         <div className="text-[#F4A429] font-bold mb-6" style={{ fontSize: 72, lineHeight: 1.1 }}>
           {fmt(seconds)}
         </div>
-        <div className="flex flex-wrap gap-2 justify-center mb-8">
+        <p className="text-white/70 text-sm mb-3">Protected during this session:</p>
+        <div className="flex flex-wrap gap-2 justify-center">
           {selected.map((app) => (
-            <div key={app.name} className="flex items-center gap-1.5 bg-white/10 rounded-full px-3 py-1.5">
+            <div key={app.name} className="flex items-center gap-1.5 bg-white/10 rounded-full px-3 py-1">
+              <div className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: app.color }} />
               <span className="text-sm">{app.emoji}</span>
-              <span className="text-white/80 text-xs">{app.name}</span>
+              <span className="text-white text-sm">{app.name}</span>
             </div>
           ))}
         </div>
-        <p className="text-white/50 text-xs text-center mb-8">
-          You&apos;re protected from your top distractions.
+        <p className="text-white/60 text-sm italic text-center mt-2 mb-8">
+          These are the distractions you chose to stay protected from today.
         </p>
         {firstApp && (
           <button
             onClick={() => { setBlockAttempted(true); onNext(); }}
-            className="flex flex-col items-center gap-2 border border-white/20 rounded-2xl p-5 hover:border-white/40 active:scale-95 transition-all w-full"
+            className="flex items-center gap-3 border border-white/20 rounded-2xl p-4 hover:border-white/40 active:scale-95 transition-all w-full"
           >
-            <span className="text-3xl">{firstApp.emoji}</span>
-            <span className="text-white/70 text-xs text-center">Tap to simulate opening {firstApp.name}</span>
+            <span className="text-2xl">{firstApp.emoji}</span>
+            <span className="text-white/70 text-xs text-left">Tap to test your shield → <span className="text-white font-medium">{firstApp.name}</span></span>
           </button>
         )}
       </div>
