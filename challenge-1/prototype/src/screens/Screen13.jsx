@@ -32,12 +32,12 @@ const NAV_TABS = [
 
 // ─── Today ────────────────────────────────────────────────────────────────────
 
-function TodayTab({ onStartMission, showToast, timeDisplay, sessionActivating }) {
+function TodayTab({ onStartMission, showToast, timeDisplay, sessionActivating, intent }) {
   return (
     <div className="px-6 pb-6">
       <div className="mt-4 mb-4">
         <h1 className="text-2xl font-bold text-gray-900">{getGreeting()}</h1>
-        <p className="text-sm text-gray-400 mt-0.5">Welcome to a new day</p>
+        <p className="text-sm text-[#6B6B6B] italic mt-0.5">You're building a focus habit. Day 1 of your streak.</p>
       </div>
 
       <button
@@ -48,7 +48,10 @@ function TodayTab({ onStartMission, showToast, timeDisplay, sessionActivating })
       </button>
 
       <div className="bg-[#F0FAF0] border border-[#C6E8C6] rounded-2xl p-4 mb-3">
-        <p className="text-xs font-medium text-green-700 uppercase tracking-wider mb-2">TODAY</p>
+        <div className="flex items-center gap-1.5 mb-2">
+          <div className="w-1.5 h-1.5 rounded-full bg-[#8CC63F]" />
+          <p className="text-xs font-medium text-green-700 uppercase tracking-wider">TODAY</p>
+        </div>
         <div className="flex items-center gap-2 mb-1.5">
           <span>⏱</span>
           <span className="text-sm text-gray-800">10 min protected today</span>
@@ -84,6 +87,21 @@ function TodayTab({ onStartMission, showToast, timeDisplay, sessionActivating })
           </>
         )}
       </div>
+
+      {/* Quick resume card */}
+      {intent && (
+        <button
+          onClick={onStartMission}
+          className="w-full bg-white border border-[#E5E5E5] rounded-2xl p-3 flex items-center gap-3 mb-3 active:bg-gray-50 transition-all"
+        >
+          <span className="text-2xl">{intent.emoji}</span>
+          <div className="flex-1 text-left">
+            <p className="text-sm font-medium text-gray-900">Resume: {intent.name}</p>
+            <p className="text-xs text-gray-400">Your last mission: {intent.name} · 10 min</p>
+          </div>
+          <span className="text-[#8CC63F] text-lg">▶</span>
+        </button>
+      )}
 
       <button
         onClick={onStartMission}
@@ -441,7 +459,7 @@ function SettingsTab({ showToast }) {
 
 // ─── Main export ──────────────────────────────────────────────────────────────
 
-export default function Screen13({ onStartMission, tomorrowTime }) {
+export default function Screen13({ onStartMission, tomorrowTime, intent }) {
   const [activeTab, setActiveTab] = useState("today");
   const [toast, setToast] = useState("");
   const [timeBannerVisible, setTimeBannerVisible] = useState(false);
@@ -524,6 +542,7 @@ export default function Screen13({ onStartMission, tomorrowTime }) {
             showToast={showToast}
             timeDisplay={timeDisplay}
             sessionActivating={sessionActivating}
+            intent={intent}
           />
         )}
         {activeTab === "sessions"   && <SessionsTab   showToast={showToast} />}

@@ -20,8 +20,11 @@ export default function Screen11({ onNext, onBack, tomorrowTime, setTomorrowTime
         <h1 className="text-2xl font-bold text-gray-900 leading-tight mb-2">
           When do you want Freedom to protect you tomorrow?
         </h1>
+        <p className="text-sm text-gray-500 mb-1 leading-relaxed">
+          People are most likely to lose focus when sessions aren't scheduled ahead.
+        </p>
         <p className="text-sm text-gray-500 mb-6 leading-relaxed">
-          Pick a time. Freedom will start automatically — you won't need to remember.
+          Let Freedom protect this time automatically tomorrow.
         </p>
         <div className="flex flex-col gap-3">
           {TIME_OPTIONS.map((opt) => {
@@ -59,7 +62,10 @@ export default function Screen11({ onNext, onBack, tomorrowTime, setTomorrowTime
           })}
         </div>
       </div>
-      <div className="px-6 pb-8 pt-4">
+      <div className="px-6 pb-8 pt-2">
+        <p className="text-xs text-center text-[#8CC63F] italic mb-3">
+          Freedom will remind you 5 minutes before it starts.
+        </p>
         <BottomCTA label="Schedule my shield" onClick={onNext} disabled={!tomorrowTime} />
       </div>
     </div>

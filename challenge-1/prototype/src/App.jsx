@@ -44,7 +44,7 @@ export default function App() {
     <Screen10 onNext={() => go(7)} onBack={() => go(6)} intent={intent} setIntent={setIntent} />,
     <Screen11 onNext={() => go(12)} onBack={() => go(9)} tomorrowTime={tomorrowTime} setTomorrowTime={setTomorrowTime} />,
     <Screen12 onNext={() => go(13)} tomorrowTime={tomorrowTime} />,
-    <Screen13 onStartMission={() => go(10)} tomorrowTime={tomorrowTime} />,
+    <Screen13 onStartMission={() => go(10)} tomorrowTime={tomorrowTime} intent={intent} />,
   ];
 
   return (

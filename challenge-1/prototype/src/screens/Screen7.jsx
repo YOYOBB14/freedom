@@ -38,18 +38,39 @@ export default function Screen7({ onNext, onSkip, selectedApps, setBlockAttempte
             </div>
           ))}
         </div>
-        <p className="text-white/60 text-sm italic text-center mt-2 mb-8">
+        <p className="text-white/60 text-sm italic text-center mt-2 mb-6">
           These are the distractions you chose to stay protected from today.
         </p>
-        {firstApp && (
-          <button
-            onClick={() => { setBlockAttempted(true); onNext(); }}
-            className="flex items-center gap-3 border border-white/20 rounded-2xl p-4 hover:border-white/40 active:scale-95 transition-all w-full"
-          >
-            <span className="text-2xl">{firstApp.emoji}</span>
-            <span className="text-white/70 text-xs text-left">Want to see Freedom in action? → <span className="text-white font-medium">{firstApp.name}</span></span>
-          </button>
-        )}
+
+        {/* Shield-active intervention section */}
+        <div className="w-full text-center">
+          <p className="text-xs text-white/50 uppercase tracking-wider mb-2">Your Shield Is Active</p>
+          <p className="text-sm text-white/70 leading-relaxed mb-4">
+            Try opening one of your protected apps to see Freedom step in.
+          </p>
+          <div className="flex flex-wrap gap-4 justify-center">
+            {selected.map((app, i) => (
+              <button
+                key={app.name}
+                onClick={() => { setBlockAttempted(true); onNext(); }}
+                className="flex flex-col items-center gap-1.5 active:scale-95 transition-all"
+              >
+                <div
+                  className={`w-11 h-11 rounded-full flex items-center justify-center text-xl ${
+                    i === 0 ? "animate-pulse" : ""
+                  }`}
+                  style={{
+                    backgroundColor: app.color + "55",
+                    ...(i === 0 ? { outline: "2px solid #8CC63F", outlineOffset: "3px" } : {}),
+                  }}
+                >
+                  {app.emoji}
+                </div>
+                <span className="text-xs text-white/60">{app.name}</span>
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
       <button onClick={onSkip} className="text-white/40 text-xs text-center mt-4">
         Skip simulation →
