@@ -11,6 +11,10 @@ import Screen6 from "./screens/Screen6";
 import Screen7 from "./screens/Screen7";
 import Screen8 from "./screens/Screen8";
 import Screen9 from "./screens/Screen9";
+import Screen10 from "./screens/Screen10";
+import Screen11 from "./screens/Screen11";
+import Screen12 from "./screens/Screen12";
+import Screen13 from "./screens/Screen13";
 
 export default function App() {
   const [screen, setScreen] = useState(0);
@@ -18,10 +22,12 @@ export default function App() {
   const [shieldLevel, setShieldLevel] = useState("real");
   const [permissionGranted, setPermissionGranted] = useState(false);
   const [blockAttempted, setBlockAttempted] = useState(false);
+  const [intent, setIntent] = useState(null);
+  const [tomorrowTime, setTomorrowTime] = useState(null);
 
   const go = (n) => setScreen(n);
 
-  const darkScreens = [0, 2, 4, 5, 6, 7, 8];
+  const darkScreens = [0, 2, 4, 5, 6, 7, 8, 12];
   const isDark = darkScreens.includes(screen);
 
   const screens = [
@@ -31,10 +37,14 @@ export default function App() {
     <Screen3 onNext={() => shieldLevel === "light" ? go(6) : go(4)} onBack={() => go(2)} shieldLevel={shieldLevel} setShieldLevel={setShieldLevel} />,
     <Screen4 onNext={() => go(5)} onBack={() => go(3)} />,
     <Screen5 onNext={() => go(6)} setPermissionGranted={setPermissionGranted} />,
-    <Screen6 onNext={() => go(7)} onBack={() => go(3)} selectedApps={selectedApps} shieldLevel={shieldLevel} />,
-    <Screen7 onNext={() => go(8)} onSkip={() => go(9)} selectedApps={selectedApps} setBlockAttempted={setBlockAttempted} />,
+    <Screen6 onNext={() => go(10)} onBack={() => go(3)} selectedApps={selectedApps} shieldLevel={shieldLevel} />,
+    <Screen7 onNext={() => go(8)} onSkip={() => go(9)} selectedApps={selectedApps} setBlockAttempted={setBlockAttempted} intent={intent} />,
     <Screen8 onReturn={() => go(7)} onEnd={() => go(9)} selectedApps={selectedApps} />,
-    <Screen9 selectedApps={selectedApps} />,
+    <Screen9 selectedApps={selectedApps} onNext={() => go(11)} />,
+    <Screen10 onNext={() => go(7)} onBack={() => go(6)} intent={intent} setIntent={setIntent} />,
+    <Screen11 onNext={() => go(12)} onBack={() => go(9)} tomorrowTime={tomorrowTime} setTomorrowTime={setTomorrowTime} />,
+    <Screen12 onNext={() => go(13)} tomorrowTime={tomorrowTime} />,
+    <Screen13 onStartMission={() => go(10)} tomorrowTime={tomorrowTime} />,
   ];
 
   return (

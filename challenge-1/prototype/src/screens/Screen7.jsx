@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Logo from "../components/Logo";
 import { APPS } from "../constants/apps";
 
-export default function Screen7({ onNext, onSkip, selectedApps, setBlockAttempted }) {
+export default function Screen7({ onNext, onSkip, selectedApps, setBlockAttempted, intent }) {
   const [seconds, setSeconds] = useState(600);
   const firstApp = APPS.find((a) => selectedApps.includes(a.name));
   const selected = APPS.filter((a) => selectedApps.includes(a.name));
@@ -18,11 +18,17 @@ export default function Screen7({ onNext, onSkip, selectedApps, setBlockAttempte
     <div className="h-full bg-[#1A2E1A] flex flex-col px-6 pt-4 pb-8 animate-slide-in">
       <Logo dark />
       <div className="flex-1 flex flex-col items-center justify-center">
-        <p className="text-white/60 text-sm uppercase tracking-widest mb-3">Focus session active</p>
+        <p className="text-white/60 text-sm uppercase tracking-widest mb-2">Focus session active</p>
+        {intent && (
+          <div className="flex items-center gap-1.5 bg-white/10 rounded-full px-3 py-1 mb-3">
+            <span className="text-sm">{intent.emoji}</span>
+            <span className="text-white text-sm">{intent.name}</span>
+          </div>
+        )}
         <div className="text-[#F4A429] font-bold mb-6" style={{ fontSize: 72, lineHeight: 1.1 }}>
           {fmt(seconds)}
         </div>
-        <p className="text-white/70 text-sm mb-3">Protected during this session:</p>
+        <p className="text-white/70 text-sm italic text-center mb-3">Freedom is protecting this moment.</p>
         <div className="flex flex-wrap gap-2 justify-center">
           {selected.map((app) => (
             <div key={app.name} className="flex items-center gap-1.5 bg-white/10 rounded-full px-3 py-1">
@@ -41,7 +47,7 @@ export default function Screen7({ onNext, onSkip, selectedApps, setBlockAttempte
             className="flex items-center gap-3 border border-white/20 rounded-2xl p-4 hover:border-white/40 active:scale-95 transition-all w-full"
           >
             <span className="text-2xl">{firstApp.emoji}</span>
-            <span className="text-white/70 text-xs text-left">Tap to test your shield → <span className="text-white font-medium">{firstApp.name}</span></span>
+            <span className="text-white/70 text-xs text-left">Want to see Freedom in action? → <span className="text-white font-medium">{firstApp.name}</span></span>
           </button>
         )}
       </div>

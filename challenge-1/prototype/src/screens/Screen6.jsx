@@ -59,7 +59,7 @@ export default function Screen6({ onNext, onBack, selectedApps, shieldLevel }) {
           </>
         ) : (
           <>
-            <BottomCTA label="Start a 10-minute focus session" onClick={onNext} />
+            <BottomCTA label="Start my first focus mission →" onClick={onNext} />
             <BottomCTA label="Customize my shield" onClick={() => {}} variant="ghost" />
           </>
         )}

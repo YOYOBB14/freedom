@@ -2,7 +2,7 @@ import { useState } from "react";
 import Logo from "../components/Logo";
 import BottomCTA from "../components/BottomCTA";
 
-export default function Screen9({ selectedApps }) {
+export default function Screen9({ selectedApps, onNext }) {
   const [toast, setToast] = useState("");
   const showToast = (msg) => {
     setToast(msg);
@@ -29,9 +29,17 @@ export default function Screen9({ selectedApps }) {
             </div>
           ))}
         </div>
+        <p className="text-center text-sm text-gray-400 italic mb-4">
+          Freedom works best when it shows up for you every day.
+        </p>
         <div className="flex flex-col gap-3">
-          <BottomCTA label="Schedule my next session" onClick={() => showToast("Coming soon!")} />
-          <BottomCTA label="Invite a friend to focus with me →" onClick={() => showToast("Share link copied!")} variant="amber" />
+          <BottomCTA label="Set up tomorrow's shield →" onClick={onNext} />
+          <button
+            onClick={() => showToast("Share link copied!")}
+            className="w-full text-center text-sm text-[#F4A429] font-medium mt-1 py-1"
+          >
+            Invite a friend to focus with me →
+          </button>
         </div>
       </div>
       <p className="text-center text-gray-400 text-xs mt-4">Freedom.to — Take back your time</p>
