@@ -6,7 +6,6 @@ export default function Screen5({ onNext, setPermissionGranted }) {
 
   const handleAllow = () => {
     setPermissionGranted(true);
-    // Green flash then navigate
     setTimeout(() => onNext(), 400);
   };
 
@@ -29,7 +28,7 @@ export default function Screen5({ onNext, setPermissionGranted }) {
             <div className="px-4 py-3 text-xs text-white/40 uppercase tracking-wide">Downloaded Apps</div>
             <button
               onClick={() => setAndroidStep(1)}
-              className="w-full flex items-center justify-between px-4 py-4 hover:bg-white/5 active:bg-white/10 ring-2 ring-[#8CC63F] animate-pulse rounded-lg"
+              className="w-full flex items-center justify-between px-4 py-4 hover:bg-white/5 active:bg-white/10"
             >
               <div className="flex items-center gap-3">
                 <span className="text-xl">🦋</span>
@@ -37,10 +36,6 @@ export default function Screen5({ onNext, setPermissionGranted }) {
               </div>
               <span className="text-white/50 text-sm">Off</span>
             </button>
-          </div>
-          {/* Tooltip */}
-          <div className="absolute left-4 right-4 bottom-24 bg-[#8CC63F] rounded-xl p-3 shadow-lg">
-            <p className="text-white text-sm font-semibold">Step 1 of 3 — Tap Freedom to continue</p>
           </div>
         </div>
       )}
@@ -55,21 +50,14 @@ export default function Screen5({ onNext, setPermissionGranted }) {
               <span className="text-white text-sm">Use Freedom</span>
               <button
                 onClick={() => setAndroidStep(2)}
-                className="w-12 h-6 rounded-full bg-gray-600 flex items-center px-1 transition-all ring-2 ring-[#8CC63F] animate-pulse"
+                className="w-12 h-6 rounded-full bg-gray-600 flex items-center px-1 transition-all"
               >
                 <div className="w-4 h-4 rounded-full bg-white shadow" />
               </button>
             </div>
-            <p className="text-white/50 text-xs leading-relaxed mb-1">
+            <p className="text-white/50 text-xs leading-relaxed">
               Enabling this permission will allow Freedom to block websites and apps during your active sessions.
             </p>
-            <p className="text-white/60 text-xs leading-relaxed">
-              This lets Freedom detect when your selected apps open.
-            </p>
-          </div>
-          {/* Tooltip */}
-          <div className="absolute left-4 right-4 bottom-24 bg-[#8CC63F] rounded-xl p-3 shadow-lg">
-            <p className="text-white text-sm font-semibold">Step 2 of 3 — Turn on the switch</p>
           </div>
         </div>
       )}
@@ -79,19 +67,13 @@ export default function Screen5({ onNext, setPermissionGranted }) {
           <div className="flex items-center px-4 py-3 border-b border-white/10">
             <span className="text-white text-sm">← Freedom</span>
           </div>
-          {/* Overlay */}
+          {/* System overlay */}
           <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center px-6 z-10">
-            {/* Tooltip above dialog */}
-            <div className="mb-3">
-              <span className="bg-[#8CC63F] text-white text-xs px-3 py-1 rounded-full font-medium shadow-lg">
-                Step 3 of 3 — Tap Allow to activate your shield
-              </span>
-            </div>
             {/* System dialog */}
             <div className="w-full bg-white rounded-2xl overflow-hidden shadow-2xl">
               <div className="p-5">
                 <div className="flex items-center gap-2 mb-3">
-                  <div className="w-8 h-8 rounded-full bg-[#8CC63F]/20 flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
                     <span className="text-base">🦋</span>
                   </div>
                   <h3 className="font-bold text-gray-900 text-sm leading-tight">
@@ -133,7 +115,7 @@ export default function Screen5({ onNext, setPermissionGranted }) {
                   </div>
                 ) : (
                   <>
-                    <button onClick={handleAllow} className="w-full py-3 text-[#1565C0] text-sm font-semibold border-b border-gray-100 animate-pulse bg-[#8CC63F]/10">Allow</button>
+                    <button onClick={handleAllow} className="w-full py-3 text-[#1565C0] text-sm font-semibold border-b border-gray-100">Allow</button>
                     <button onClick={() => setDenied(true)} className="w-full py-3 text-[#1565C0] text-sm font-medium border-b border-gray-100">Deny</button>
                     <button className="w-full py-3 text-[#1565C0] text-sm font-medium">Uninstall</button>
                   </>
