@@ -37,14 +37,14 @@ function TodayTab({ onStartMission, showToast, timeDisplay, sessionActivating, i
     <div className="px-6 pb-6">
       <div className="mt-4 mb-4">
         <h1 className="text-2xl font-bold text-gray-900">{getGreeting()}</h1>
-        <p className="text-sm text-[#6B6B6B] italic mt-0.5">You're building a focus habit. Day 1 of your streak.</p>
+        <p className="text-sm text-[#6B6B6B] mt-0.5">You've started building a focus routine.</p>
       </div>
 
       <button
         onClick={onStartMission}
         className="w-full py-4 rounded-full bg-[#8CC63F] text-white font-bold uppercase tracking-wide text-sm mb-4 active:scale-95 transition-all"
       >
-        Start a Session
+        Start a new mission
       </button>
 
       <div className="bg-[#F0FAF0] border border-[#C6E8C6] rounded-2xl p-4 mb-3">
@@ -62,7 +62,7 @@ function TodayTab({ onStartMission, showToast, timeDisplay, sessionActivating, i
             <span className="text-sm text-gray-800">1 distraction blocked</span>
           </div>
           <span className="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full">
-            🔥 Day 1 streak
+            1 protected day
           </span>
         </div>
       </div>
@@ -83,7 +83,7 @@ function TodayTab({ onStartMission, showToast, timeDisplay, sessionActivating, i
               <span>🛡️</span>
               <span className="text-sm font-medium text-gray-800">Shield scheduled: {timeDisplay}</span>
             </div>
-            <p className="text-xs text-gray-400 italic ml-6">Starts automatically — no need to remember.</p>
+            <p className="text-sm text-[#92661A] italic ml-6">Starts automatically — no need to remember.</p>
           </>
         )}
       </div>
