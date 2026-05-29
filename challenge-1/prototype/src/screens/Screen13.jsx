@@ -502,8 +502,8 @@ export default function Screen13({ onStartMission, tomorrowTime, intent, onChall
       <div
         className="absolute left-3 right-3 z-50 cursor-pointer"
         style={{
-          top: 56,
-          transform: notifVisible ? "translateY(0)" : "translateY(-160px)",
+          top: 0,
+          transform: notifVisible ? "translateY(56px)" : "translateY(-300px)",
           transition: notifVisible
             ? "transform 350ms ease-out"
             : "transform 300ms ease-in",
