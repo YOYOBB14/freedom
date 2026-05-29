@@ -459,7 +459,7 @@ function SettingsTab({ showToast }) {
 
 // ─── Main export ──────────────────────────────────────────────────────────────
 
-export default function Screen13({ onStartMission, tomorrowTime, intent }) {
+export default function Screen13({ onStartMission, tomorrowTime, intent, onChallengeNav }) {
   const [activeTab, setActiveTab] = useState("today");
   const [toast, setToast] = useState("");
   const [timeBannerVisible, setTimeBannerVisible] = useState(false);
@@ -500,7 +500,7 @@ export default function Screen13({ onStartMission, tomorrowTime, intent }) {
 
       {/* Proactive push notification — slides in from top at 6.5s, out at 11.5s */}
       <div
-        className="absolute left-3 right-3 z-50"
+        className="absolute left-3 right-3 z-50 cursor-pointer"
         style={{
           top: 56,
           transform: notifVisible ? "translateY(0)" : "translateY(-160px)",
@@ -508,6 +508,7 @@ export default function Screen13({ onStartMission, tomorrowTime, intent }) {
             ? "transform 350ms ease-out"
             : "transform 300ms ease-in",
         }}
+        onClick={onChallengeNav}
       >
         <div className="bg-[#1C1C1C] rounded-2xl shadow-lg px-4 py-3 flex items-start gap-3">
           <div className="w-7 h-7 rounded-full bg-[#8CC63F] flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -518,6 +519,9 @@ export default function Screen13({ onStartMission, tomorrowTime, intent }) {
             <p className="text-white text-sm font-medium">Your focus session starts in 5 minutes.</p>
             <p className="text-white/60 text-xs mt-0.5">
               Study time shield activates at {timeDisplay}. Get ready to focus.
+            </p>
+            <p className="text-white/50 text-xs mt-1">
+              Want extra motivation? Invite a friend to join today's challenge.
             </p>
           </div>
           <span className="text-white/40 text-xs flex-shrink-0">5m</span>

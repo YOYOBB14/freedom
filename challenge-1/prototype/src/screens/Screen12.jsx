@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ShieldIcon from "../components/ShieldIcon";
 import BottomCTA from "../components/BottomCTA";
 
-export default function Screen12({ onNext, tomorrowTime }) {
+export default function Screen12({ onNext, onChallenge, tomorrowTime }) {
   const [notifVisible, setNotifVisible] = useState(false);
   const [ctaVisible, setCtaVisible] = useState(false);
   const timeLabel = tomorrowTime?.time || "tomorrow";
@@ -15,7 +15,7 @@ export default function Screen12({ onNext, tomorrowTime }) {
   }, []);
 
   return (
-    <div className="h-full bg-[#1A2E1A] flex flex-col items-center justify-center px-6 pb-8 pt-4 animate-slide-in relative overflow-hidden">
+    <div className="h-full bg-[#1A2E1A] flex flex-col px-6 pb-8 pt-4 animate-slide-in relative overflow-hidden">
 
       {/* Push notification */}
       <div
@@ -41,7 +41,7 @@ export default function Screen12({ onNext, tomorrowTime }) {
       </div>
 
       {/* Main content */}
-      <div className="flex flex-col items-center text-center">
+      <div className="flex-1 flex flex-col items-center justify-center text-center">
         <ShieldIcon size={100} glowing />
         <h1 className="text-3xl font-bold text-white mt-6">Done.</h1>
         <p className="text-white/80 text-base text-center mt-3 leading-relaxed">
@@ -52,15 +52,35 @@ export default function Screen12({ onNext, tomorrowTime }) {
         </p>
       </div>
 
-      {/* CTA fades in after delay */}
+      {/* CTA + accountability section */}
       <div
-        className="absolute bottom-8 left-6 right-6"
         style={{
           opacity: ctaVisible ? 1 : 0,
           transition: "opacity 500ms ease-in",
         }}
       >
         <BottomCTA label="Go to my dashboard" onClick={onNext} />
+
+        <div className="border-t border-white/15 mt-5 pt-5">
+          <p className="text-white/40 text-xs uppercase tracking-wider text-center mb-2">
+            Want extra accountability?
+          </p>
+          <p className="text-white/60 text-sm text-center mb-4">
+            Your session is booked. Invite someone to join you.
+          </p>
+          <button
+            onClick={onChallenge}
+            className="w-full border border-white/25 rounded-full py-3 text-white/80 text-sm font-medium active:bg-white/5 transition-all"
+          >
+            Challenge a Friend →
+          </button>
+          <button
+            onClick={onNext}
+            className="w-full text-center text-xs text-white/30 mt-3 py-1"
+          >
+            Not now
+          </button>
+        </div>
       </div>
     </div>
   );
