@@ -1,10 +1,10 @@
 import BottomCTA from "../components/BottomCTA";
 
 const BODY_BY_PERSONA = {
-  friend: "Your friend will get a 10-minute challenge. When they accept, you'll both feel the difference.",
-  child:  "Your child's focus session is ready. When they join, Freedom protects you both.",
-  team:   "Your team has been invited. Shared focus creates shared wins.",
-  study:  "Your study partner will get the challenge. Accountability starts now.",
+  friend: "When they join, you'll focus together tomorrow. Neither of you goes it alone.",
+  child:  "Their shield is ready. You're helping them build the habit.",
+  team:   "Your team has everything they need to protect their deep work time.",
+  study:  "When they join, you'll both have someone keeping you accountable.",
 };
 
 function ShieldSVG({ glow }) {
@@ -58,13 +58,13 @@ export default function Screen16({ onNext, onPreview, sharingPersona }) {
       </div>
 
       <h1 className="text-2xl font-bold text-white text-center leading-tight mb-3">
-        Your challenge is on its way.
+        Your accountability partner is on their way.
       </h1>
       <p className="text-white/70 text-sm text-center leading-relaxed mb-4 px-2">
         {bodyText}
       </p>
       <p className="text-white/40 text-xs text-center italic mb-8">
-        Freedom works better when someone's doing it with you.
+        Focusing with a partner makes it easier to show up tomorrow.
       </p>
 
       <div className="w-full border-t border-white/10 mb-6" />

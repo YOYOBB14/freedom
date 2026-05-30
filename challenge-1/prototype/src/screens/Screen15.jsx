@@ -5,24 +5,28 @@ import { APPS } from "../constants/apps";
 
 const VARIANTS = {
   friend: {
-    headline: "Dare your friend to match your focus.",
-    tagline: "Friendly competition. Real results.",
-    body: "Send them a 10-minute challenge. No apps. No excuses.",
+    headline: "Your accountability partner is one tap away.",
+    tagline: "Focus together. Stay accountable.",
+    body: "When they join, you'll both have someone keeping you on track.",
+    cta: "Invite to focus together",
   },
   child: {
     headline: "Help your child build focus habits.",
     tagline: "Lead by example. Protect together.",
     body: "Schedule a shared session your child can join from their device.",
+    cta: "Set up their shield",
   },
   team: {
     headline: "Build a focus culture with your team.",
     tagline: "Shared focus. Better output.",
     body: "Invite your team to a shared block. Everyone wins when no one drifts.",
+    cta: "Invite your team",
   },
   study: {
-    headline: "Study sessions are better with a partner.",
-    tagline: "Accountability makes it stick.",
+    headline: "Study with an accountability partner.",
+    tagline: "You'll both stay on track together.",
     body: "Send a partner a 10-minute challenge and study in sync.",
+    cta: "Invite study partner",
   },
 };
 
@@ -118,7 +122,7 @@ export default function Screen15({ onNext, onBack, onSkip, sharingPersona, selec
 
       <div className="px-6 pb-8 pt-4 flex-shrink-0">
         <BottomCTA
-          label="Send the challenge"
+          label={variant.cta}
           onClick={() => setShowSheet(true)}
           disabled={isTeam && !teamBlock}
         />

@@ -5,9 +5,9 @@ import { APPS } from "../constants/apps";
 const LANDING_BY_PERSONA = {
   friend: {
     emoji: "👥",
-    headline: "Your friend challenged you.",
-    sub: "They just completed a 10-minute focus session. Can you match it?",
-    cta: "Accept the challenge",
+    headline: "Shahar wants to focus with you.",
+    sub: "They've scheduled tomorrow's focus session. Join them and keep each other accountable.",
+    cta: "Join the session",
   },
   child: {
     emoji: "👨‍👩‍👧",
@@ -23,9 +23,9 @@ const LANDING_BY_PERSONA = {
   },
   study: {
     emoji: "📚",
-    headline: "Your study partner sent you a challenge.",
-    sub: "Study together for 10 minutes. Accountability makes it stick.",
-    cta: "Accept and study",
+    headline: "Your partner wants an accountability partner.",
+    sub: "Study together for 10 minutes. Keep each other on track.",
+    cta: "Study together",
   },
 };
 
@@ -170,14 +170,14 @@ export default function Screen17({ onDone, onBackToSender, sharingPersona, selec
           >
             <span className="text-4xl text-[#8CC63F]">✓</span>
           </div>
-          <h1 className="text-3xl font-bold text-white mb-3">Challenge accepted.</h1>
-          <p className="text-white/70 text-sm leading-relaxed mb-2">
-            Shahar will see that you joined.
+          <h1 className="text-3xl font-bold text-white mb-3">You're in.</h1>
+          <p className="text-white/70 text-sm leading-relaxed mb-2 px-2">
+            You and Shahar are focusing together tomorrow. You'll both be there to keep each other on track.
           </p>
           <p className="text-white/40 text-xs italic mb-10">
-            10 minutes protected together.
+            Accountability starts now.
           </p>
-          <BottomCTA label="Keep going with Freedom →" onClick={onDone} />
+          <BottomCTA label="Set up my focus session →" onClick={onDone} />
         </div>
       )}
     </div>

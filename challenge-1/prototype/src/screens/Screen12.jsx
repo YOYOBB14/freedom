@@ -62,11 +62,11 @@ export default function Screen12({ onNext, onChallenge, tomorrowTime }) {
         <BottomCTA label="Go to my dashboard" onClick={onNext} />
 
         <div className="border-t border-white/15 mt-5 pt-5">
-          <p className="text-white/40 text-xs uppercase tracking-wider text-center mb-2">
-            Want extra accountability?
+          <p className="text-white/70 text-sm text-center mb-1">
+            People stay more focused when someone keeps them accountable.
           </p>
-          <p className="text-white/60 text-sm text-center mb-4">
-            Your session is booked. Invite someone to join you.
+          <p className="text-white/50 text-xs text-center mt-1 mb-4">
+            Want to bring someone into tomorrow's session?
           </p>
           <button
             onClick={onChallenge}

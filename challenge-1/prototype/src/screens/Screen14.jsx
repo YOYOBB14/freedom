@@ -3,10 +3,10 @@ import BackButton from "../components/BackButton";
 import BottomCTA from "../components/BottomCTA";
 
 const PERSONAS = [
-  { id: "friend", emoji: "👥",       name: "Challenge a friend",   desc: "You just had a focus win. Dare them to match it." },
-  { id: "child",  emoji: "👨‍👩‍👧",     name: "Set up for my child",  desc: "Help your child protect their focus too." },
-  { id: "team",   emoji: "💼",       name: "Share with my team",    desc: "Build a focus culture where everyone works better." },
-  { id: "study",  emoji: "📚",       name: "Study with a partner",  desc: "Accountability makes study sessions more effective." },
+  { id: "friend", emoji: "👥",       name: "Challenge a friend",   desc: "Focus together tomorrow. Stay accountable to each other." },
+  { id: "child",  emoji: "👨‍👩‍👧",     name: "Set up for my child",  desc: "Help your child build a focus habit alongside yours." },
+  { id: "team",   emoji: "💼",       name: "Share with my team",    desc: "Protect your team's deep work time together." },
+  { id: "study",  emoji: "📚",       name: "Study with a partner",  desc: "Study side by side. Keep each other on track." },
 ];
 
 export default function Screen14({ onNext, onBack, onSkip, sharingPersona, setSharingPersona }) {
@@ -26,10 +26,10 @@ export default function Screen14({ onNext, onBack, onSkip, sharingPersona, setSh
         </div>
 
         <h1 className="text-2xl font-bold text-gray-900 leading-tight mb-1">
-          Who do you want to protect their focus?
+          Who do you want to stay accountable with?
         </h1>
         <p className="text-sm text-gray-500 italic mb-6">
-          Each creates a different kind of accountability.
+          Focusing with someone makes it easier to follow through.
         </p>
 
         <div className="flex flex-col gap-3">
