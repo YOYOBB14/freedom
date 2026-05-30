@@ -11,10 +11,10 @@ const VARIANTS = {
     cta: "Invite to focus together",
   },
   child: {
-    headline: "Help your child build focus habits.",
-    tagline: "Lead by example. Protect together.",
-    body: "Schedule a shared session your child can join from their device.",
-    cta: "Set up their shield",
+    headline: "Set up a blocker for your child's phone.",
+    tagline: "They'll only see what you allow during focus time.",
+    body: "Send this link to set up Freedom on your child's device.",
+    cta: "Send to my child's device",
   },
   team: {
     headline: "Build a focus culture with your team.",

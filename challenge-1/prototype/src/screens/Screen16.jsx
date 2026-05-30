@@ -2,7 +2,7 @@ import BottomCTA from "../components/BottomCTA";
 
 const BODY_BY_PERSONA = {
   friend: "When they join, you'll focus together tomorrow. Neither of you goes it alone.",
-  child:  "Their shield is ready. You're helping them build the habit.",
+  child:  "Freedom is ready to be set up on their device.",
   team:   "Your team has everything they need to protect their deep work time.",
   study:  "When they join, you'll both have someone keeping you accountable.",
 };

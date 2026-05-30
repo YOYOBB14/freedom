@@ -11,9 +11,9 @@ const LANDING_BY_PERSONA = {
   },
   child: {
     emoji: "👨‍👩‍👧",
-    headline: "Your family set up a focus session for you.",
-    sub: "They want to protect your focus too. Join them for 10 minutes.",
-    cta: "Start my session",
+    headline: "A Focus Shield has been set up for you.",
+    sub: "Distracting apps will be blocked during focus sessions.",
+    cta: "Activate my shield",
   },
   team: {
     emoji: "💼",

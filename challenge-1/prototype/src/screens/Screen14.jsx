@@ -4,7 +4,7 @@ import BottomCTA from "../components/BottomCTA";
 
 const PERSONAS = [
   { id: "friend", emoji: "👥",       name: "Challenge a friend",   desc: "Focus together tomorrow. Stay accountable to each other." },
-  { id: "child",  emoji: "👨‍👩‍👧",     name: "Set up for my child",  desc: "Help your child build a focus habit alongside yours." },
+  { id: "child",  emoji: "👨‍👩‍👧",     name: "Block my child's phone",  desc: "Set up screen blocking on your child's device." },
   { id: "team",   emoji: "💼",       name: "Share with my team",    desc: "Protect your team's deep work time together." },
   { id: "study",  emoji: "📚",       name: "Study with a partner",  desc: "Study side by side. Keep each other on track." },
 ];
