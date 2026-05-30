@@ -69,8 +69,16 @@ export default function Screen4({ onNext, onBack }) {
           This is how Freedom detects when one of your selected distraction apps opens and blocks it during a focus session.
         </p>
 
-        {/* Cream permissions card */}
-        <div className="bg-[#F5F2EC] rounded-2xl p-5 w-full mb-8">
+        {/* Permissions card */}
+        <div
+          style={{
+            background: "#FFFFFF",
+            borderRadius: 20,
+            margin: "20px 20px 28px",
+            padding: "20px 16px",
+            boxShadow: "0 4px 20px rgba(0, 0, 0, 0.25)",
+          }}
+        >
 
           {/* Row 1 */}
           <div className="flex items-center gap-3">
@@ -82,7 +90,7 @@ export default function Screen4({ onNext, onBack }) {
             </div>
             <div className="flex-1 min-w-0">
               <p className="font-medium text-sm text-gray-900">View and control screen</p>
-              <p className="text-xs text-gray-500 mt-0.5">Reads which app is open so Freedom can block it.</p>
+              <p className="text-xs text-gray-500 mt-0.5">Lets Freedom know when a distraction app appears, so it can quietly step in for you.</p>
             </div>
             <div className="relative flex-shrink-0">
               <button
@@ -109,7 +117,7 @@ export default function Screen4({ onNext, onBack }) {
             </div>
             <div className="flex-1 min-w-0">
               <p className="font-medium text-sm text-gray-900">View and perform actions</p>
-              <p className="text-xs text-gray-500 mt-0.5">Steps in when a blocked app is opened.</p>
+              <p className="text-xs text-gray-500 mt-0.5">Gives Freedom the ability to act on your behalf — only when you're in a focus session.</p>
             </div>
             <div className="relative flex-shrink-0">
               <button

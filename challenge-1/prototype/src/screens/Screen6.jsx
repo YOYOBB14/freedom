@@ -75,22 +75,49 @@ export default function Screen6({ onNext, onBack, selectedApps, shieldLevel }) {
           </p>
 
           {!isLight && (
-            <div className="flex items-center justify-center gap-2 mt-4">
-              <p className="text-white/60 text-xs">
-                Freedom only steps in during your active sessions.
-              </p>
-              <div className="relative flex-shrink-0">
-                <button
-                  onClick={handleShieldTooltip}
-                  className="w-5 h-5 rounded-full border border-white/30 flex items-center justify-center text-white/50 text-xs font-medium"
+            <>
+              <div style={{ height: 1, background: "rgba(255,255,255,0.08)", margin: "20px 32px" }} />
+              <div style={{ display: "flex", justifyContent: "center", marginTop: 4 }}>
+                <div
+                  style={{
+                    background: "rgba(255,255,255,0.06)",
+                    borderRadius: 20,
+                    padding: "8px 14px",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 6,
+                  }}
                 >
-                  ?
-                </button>
-                {shieldInfoTooltipShown && (
-                  <Tooltip text="Freedom will only activate when one of your selected distraction apps is opened during a focus session. You can adjust or turn off your shield anytime in Settings." />
-                )}
+                  <span style={{ fontSize: 12, color: "rgba(255,255,255,0.5)" }}>
+                    Only active during your focus sessions — tap ? to learn more
+                  </span>
+                  <div className="relative flex-shrink-0">
+                    <button
+                      onClick={handleShieldTooltip}
+                      style={{
+                        width: 20,
+                        height: 20,
+                        borderRadius: "50%",
+                        border: "1.5px solid rgba(255,255,255,0.35)",
+                        color: "rgba(255,255,255,0.55)",
+                        fontSize: 11,
+                        fontWeight: 500,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        background: "transparent",
+                        cursor: "pointer",
+                      }}
+                    >
+                      ?
+                    </button>
+                    {shieldInfoTooltipShown && (
+                      <Tooltip text="Freedom will only activate when one of your selected distraction apps is opened during a focus session. You can adjust or turn off your shield anytime in Settings." />
+                    )}
+                  </div>
+                </div>
               </div>
-            </div>
+            </>
           )}
         </div>
       </div>
