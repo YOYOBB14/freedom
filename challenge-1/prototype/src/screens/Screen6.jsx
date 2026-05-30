@@ -40,7 +40,8 @@ export default function Screen6({ onNext, onBack, selectedApps, shieldLevel }) {
 
   return (
     <div
-      className="h-full bg-[#1A2E1A] flex flex-col px-6 pt-4 pb-8 animate-slide-in"
+      className="h-full flex flex-col px-6 pt-4 pb-8 animate-slide-in"
+      style={{ background: "#0F1F0F" }}
       onClick={() => setShieldInfoTooltipShown(false)}
     >
       <Logo dark />
@@ -89,7 +90,7 @@ export default function Screen6({ onNext, onBack, selectedApps, shieldLevel }) {
                   }}
                 >
                   <span style={{ fontSize: 12, color: "rgba(255,255,255,0.5)" }}>
-                    Only active during your focus sessions — tap ? to learn more
+                    Only active during focus sessions.
                   </span>
                   <div className="relative flex-shrink-0">
                     <button
@@ -112,7 +113,7 @@ export default function Screen6({ onNext, onBack, selectedApps, shieldLevel }) {
                       ?
                     </button>
                     {shieldInfoTooltipShown && (
-                      <Tooltip text="Freedom will only activate when one of your selected distraction apps is opened during a focus session. You can adjust or turn off your shield anytime in Settings." />
+                      <Tooltip text="Activates only when a blocked app opens during a session. Turn off anytime in Settings." />
                     )}
                   </div>
                 </div>

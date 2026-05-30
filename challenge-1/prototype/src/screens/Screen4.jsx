@@ -51,7 +51,8 @@ export default function Screen4({ onNext, onBack }) {
 
   return (
     <div
-      className="h-full bg-[#1A2E1A] flex flex-col px-6 pt-4 pb-8 animate-slide-in overflow-y-auto"
+      className="h-full flex flex-col px-6 pt-4 pb-8 animate-slide-in overflow-y-auto"
+      style={{ background: "#0F1F0F" }}
       onClick={dismissAll}
     >
       <Logo dark />
@@ -90,7 +91,7 @@ export default function Screen4({ onNext, onBack }) {
             </div>
             <div className="flex-1 min-w-0">
               <p className="font-medium text-sm text-gray-900">View and control screen</p>
-              <p className="text-xs text-gray-500 mt-0.5">Lets Freedom know when a distraction app appears, so it can quietly step in for you.</p>
+              <p className="text-xs text-gray-500 mt-0.5">Lets Freedom know when a distraction app appears.</p>
             </div>
             <div className="relative flex-shrink-0">
               <button
@@ -100,7 +101,7 @@ export default function Screen4({ onNext, onBack }) {
                 ?
               </button>
               {tooltip1Shown && (
-                <Tooltip text="It can read all content on the screen and display content over other apps." />
+                <Tooltip text="Reads screen content to detect blocked apps." />
               )}
             </div>
           </div>
@@ -117,7 +118,7 @@ export default function Screen4({ onNext, onBack }) {
             </div>
             <div className="flex-1 min-w-0">
               <p className="font-medium text-sm text-gray-900">View and perform actions</p>
-              <p className="text-xs text-gray-500 mt-0.5">Gives Freedom the ability to act on your behalf — only when you're in a focus session.</p>
+              <p className="text-xs text-gray-500 mt-0.5">Acts on your behalf during a focus session.</p>
             </div>
             <div className="relative flex-shrink-0">
               <button
@@ -127,7 +128,7 @@ export default function Screen4({ onNext, onBack }) {
                 ?
               </button>
               {tooltip2Shown && (
-                <Tooltip text="It can track your interactions with an app or a hardware sensor, and interact with apps on your behalf." />
+                <Tooltip text="Interacts with apps to enforce your block." />
               )}
             </div>
           </div>
