@@ -1,40 +1,131 @@
+import { useState } from "react";
 import Logo from "../components/Logo";
 import BackButton from "../components/BackButton";
 import BottomCTA from "../components/BottomCTA";
-import TrustBullet from "../components/TrustBullet";
 import ShieldIcon from "../components/ShieldIcon";
 
-const bullets = [
-  { text: "We do not read your messages" },
-  { text: "We do not collect passwords" },
-  { text: "We do not sell your personal activity" },
-  { text: "You can turn this off anytime in Android settings" },
-  { text: "Freedom will use this", highlight: "only for the apps you selected" },
-];
+function Tooltip({ text }) {
+  return (
+    <div className="absolute bottom-full right-0 mb-2 z-50" style={{ maxWidth: 220, minWidth: 180 }}>
+      <div className="bg-[#1C1C1C] text-white text-xs rounded-xl p-3 leading-relaxed shadow-xl">
+        {text}
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          bottom: -6,
+          right: 8,
+          width: 0,
+          height: 0,
+          borderLeft: "6px solid transparent",
+          borderRight: "6px solid transparent",
+          borderTop: "6px solid #1C1C1C",
+        }}
+      />
+    </div>
+  );
+}
 
 export default function Screen4({ onNext, onBack }) {
+  const [tooltip1Shown, setTooltip1Shown] = useState(false);
+  const [tooltip2Shown, setTooltip2Shown] = useState(false);
+
+  const handleTooltip1 = (e) => {
+    e.stopPropagation();
+    if (!tooltip1Shown) console.log("Permission tooltip 1 tapped");
+    setTooltip1Shown((v) => !v);
+    setTooltip2Shown(false);
+  };
+
+  const handleTooltip2 = (e) => {
+    e.stopPropagation();
+    if (!tooltip2Shown) console.log("Permission tooltip 2 tapped");
+    setTooltip2Shown((v) => !v);
+    setTooltip1Shown(false);
+  };
+
+  const dismissAll = () => {
+    setTooltip1Shown(false);
+    setTooltip2Shown(false);
+  };
+
   return (
-    <div className="h-full bg-[#1A2E1A] flex flex-col px-6 pt-4 pb-8 animate-slide-in overflow-y-auto">
+    <div
+      className="h-full bg-[#1A2E1A] flex flex-col px-6 pt-4 pb-8 animate-slide-in overflow-y-auto"
+      onClick={dismissAll}
+    >
       <Logo dark />
       <BackButton onBack={onBack} dark />
+
       <div className="flex flex-col items-center pt-10">
         <ShieldIcon size={80} glowing>
           <span className="text-2xl">🔒</span>
         </ShieldIcon>
+
         <h1 className="text-xl font-bold text-white text-center mt-4 mb-2">
           Android will ask for Accessibility access next.
         </h1>
         <p className="text-white/70 text-sm text-center leading-relaxed mb-6">
           This is how Freedom detects when one of your selected distraction apps opens and blocks it during a focus session.
         </p>
-        <div className="w-full flex flex-col gap-3 mb-6">
-          {bullets.map((b, i) => (
-            <TrustBullet key={i} text={b.text} highlight={b.highlight} />
-          ))}
+
+        {/* Cream permissions card */}
+        <div className="bg-[#F5F2EC] rounded-2xl p-5 w-full mb-8">
+
+          {/* Row 1 */}
+          <div className="flex items-center gap-3">
+            <div
+              className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
+              style={{ backgroundColor: "#F4A429" }}
+            >
+              <span className="text-base">👁</span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="font-medium text-sm text-gray-900">View and control screen</p>
+              <p className="text-xs text-gray-500 mt-0.5">Reads which app is open so Freedom can block it.</p>
+            </div>
+            <div className="relative flex-shrink-0">
+              <button
+                onClick={handleTooltip1}
+                className="w-[22px] h-[22px] rounded-full border border-gray-300 flex items-center justify-center text-gray-400 text-xs font-medium"
+              >
+                ?
+              </button>
+              {tooltip1Shown && (
+                <Tooltip text="It can read all content on the screen and display content over other apps." />
+              )}
+            </div>
+          </div>
+
+          <div className="border-t border-gray-100 my-3" />
+
+          {/* Row 2 */}
+          <div className="flex items-center gap-3">
+            <div
+              className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
+              style={{ backgroundColor: "#6B8FA3" }}
+            >
+              <span className="text-base">✋</span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="font-medium text-sm text-gray-900">View and perform actions</p>
+              <p className="text-xs text-gray-500 mt-0.5">Steps in when a blocked app is opened.</p>
+            </div>
+            <div className="relative flex-shrink-0">
+              <button
+                onClick={handleTooltip2}
+                className="w-[22px] h-[22px] rounded-full border border-gray-300 flex items-center justify-center text-gray-400 text-xs font-medium"
+              >
+                ?
+              </button>
+              {tooltip2Shown && (
+                <Tooltip text="It can track your interactions with an app or a hardware sensor, and interact with apps on your behalf." />
+              )}
+            </div>
+          </div>
+
         </div>
-        <p className="text-white/40 text-xs text-center leading-relaxed mb-8">
-          Android shows a broad system warning for every app using this access type. Freedom uses it for one narrow purpose: blocking your selected distractions.
-        </p>
+
         <BottomCTA label="Continue to Android settings" onClick={onNext} />
       </div>
     </div>

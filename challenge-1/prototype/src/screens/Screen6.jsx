@@ -1,14 +1,48 @@
+import { useState } from "react";
 import Logo from "../components/Logo";
 import BottomCTA from "../components/BottomCTA";
 import ShieldIcon from "../components/ShieldIcon";
 import { APPS } from "../constants/apps";
 
+function Tooltip({ text }) {
+  return (
+    <div className="absolute bottom-full right-0 mb-2 z-50" style={{ maxWidth: 220, minWidth: 180 }}>
+      <div className="bg-[#1C1C1C] text-white text-xs rounded-xl p-3 leading-relaxed shadow-xl">
+        {text}
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          bottom: -6,
+          right: 8,
+          width: 0,
+          height: 0,
+          borderLeft: "6px solid transparent",
+          borderRight: "6px solid transparent",
+          borderTop: "6px solid #1C1C1C",
+        }}
+      />
+    </div>
+  );
+}
+
 export default function Screen6({ onNext, onBack, selectedApps, shieldLevel }) {
+  const [shieldInfoTooltipShown, setShieldInfoTooltipShown] = useState(false);
+
   const selected = APPS.filter((a) => selectedApps.includes(a.name));
   const isLight = shieldLevel === "light";
 
+  const handleShieldTooltip = (e) => {
+    e.stopPropagation();
+    if (!shieldInfoTooltipShown) console.log("Shield info tooltip tapped");
+    setShieldInfoTooltipShown((v) => !v);
+  };
+
   return (
-    <div className="h-full bg-[#1A2E1A] flex flex-col px-6 pt-4 pb-8 animate-slide-in">
+    <div
+      className="h-full bg-[#1A2E1A] flex flex-col px-6 pt-4 pb-8 animate-slide-in"
+      onClick={() => setShieldInfoTooltipShown(false)}
+    >
       <Logo dark />
       <div className="flex-1 flex flex-col items-center justify-center">
         <ShieldIcon size={160} glowing>
@@ -24,6 +58,7 @@ export default function Screen6({ onNext, onBack, selectedApps, shieldLevel }) {
             ))}
           </div>
         </ShieldIcon>
+
         <div className="text-center mt-8">
           <h1 className="text-2xl font-bold text-white mb-3">
             {isLight ? "Your Light Shield is ready." : "Your Focus Shield is active."}
@@ -38,19 +73,28 @@ export default function Screen6({ onNext, onBack, selectedApps, shieldLevel }) {
                   during focus sessions.</>
             }
           </p>
+
           {!isLight && (
-            <div className="mt-6 w-full max-w-xs">
-              <div className="border-t border-white/20 mb-4" />
-              <p className="text-white/70 text-sm leading-relaxed mb-2">
-                Freedom will only step in when your selected distraction apps are opened during focus sessions.
+            <div className="flex items-center justify-center gap-2 mt-4">
+              <p className="text-white/60 text-xs">
+                Freedom only steps in during your active sessions.
               </p>
-              <p className="text-white/60 text-sm leading-relaxed">
-                You can adjust or turn off your Focus Shield anytime.
-              </p>
+              <div className="relative flex-shrink-0">
+                <button
+                  onClick={handleShieldTooltip}
+                  className="w-5 h-5 rounded-full border border-white/30 flex items-center justify-center text-white/50 text-xs font-medium"
+                >
+                  ?
+                </button>
+                {shieldInfoTooltipShown && (
+                  <Tooltip text="Freedom will only activate when one of your selected distraction apps is opened during a focus session. You can adjust or turn off your shield anytime in Settings." />
+                )}
+              </div>
             </div>
           )}
         </div>
       </div>
+
       <div className="flex flex-col gap-3">
         {isLight ? (
           <>
